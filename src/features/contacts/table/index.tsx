@@ -16,7 +16,7 @@ export function Table({ data }: TableProps) {
       </tr>
     </StyledTHead>
     <StyledTBody>
-      {data.map((contact) => <tr>
+      {data.map((contact) => <tr key={contact.id}>
         <td>{contact.id}</td>
         <td>{contact.name}</td>
         <td>

@@ -9,7 +9,7 @@ export function List({ data }: ListProps) {
   return (
     <StyledUl>
       {data.map((contact) =>
-        <StyledLi>
+        <StyledLi key={contact.id}>
           <ContactId>{contact.id}</ContactId>
 
           <div>
