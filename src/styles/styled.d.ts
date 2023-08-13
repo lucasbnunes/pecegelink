@@ -16,7 +16,7 @@ type Color = {
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    spacing: string;
+    spacing: (value: number) => string;
     colors: {
       primary: Color;
       secondary: Color;

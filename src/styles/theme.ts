@@ -1,7 +1,7 @@
 import { DefaultTheme } from 'styled-components';
 
 export const theme: DefaultTheme = {
-  spacing: '4px',
+  spacing: (value) => `${value * 4}px`,
   colors: {
     primary: {
       '50': '#fff0f1',
