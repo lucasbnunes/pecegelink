@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
-  body {
-    color: ${({ theme }) => theme.colors.gray['950']};
+  body, a {
+    color: ${({ theme }) => theme.colors.gray['700']};
     font-family: 'Inter', sans-serif;
   }
 `;
