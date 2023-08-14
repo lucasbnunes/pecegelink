@@ -2,7 +2,7 @@ import { ThemeProvider } from 'styled-components'
 import { theme } from './styles/theme'
 import { GlobalStyle } from './styles/global'
 import { Home } from './pages/home'
-import { Layout } from './components/layout'
+import { Layout } from './components/Layout'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 const queryClient = new QueryClient()
