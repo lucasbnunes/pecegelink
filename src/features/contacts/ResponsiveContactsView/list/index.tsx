@@ -1,4 +1,4 @@
-import { Contact } from "../types";
+import { Contact } from "../../types";
 import { ContactId, ContactInfo, ContactName, StyledLi, StyledUl } from "./styles";
 
 interface ListProps {

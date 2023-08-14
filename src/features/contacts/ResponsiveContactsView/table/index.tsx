@@ -1,4 +1,4 @@
-import { Contact } from "../types"
+import { Contact } from "../../types"
 import { StyledTBody, StyledTHead, StyledTable } from "./styles"
 
 interface TableProps {
