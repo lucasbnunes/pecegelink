@@ -1,7 +1,12 @@
 import { useState, useEffect } from 'react';
 
+type Dimensions = {
+  width: number;
+  height: number;
+};
+
 export default function useViewport() {
-  const [windowSize, setWindowSize] = useState({
+  const [windowSize, setWindowSize] = useState<Dimensions>({
     width: 0,
     height: 0,
   });
@@ -11,6 +16,7 @@ export default function useViewport() {
   }
 
   useEffect(() => {
+    changeWindowSize();
     window.addEventListener('resize', changeWindowSize);
 
     return () => {
