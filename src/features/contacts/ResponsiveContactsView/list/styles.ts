@@ -23,7 +23,7 @@ export const StyledLi = styled.li`
 
 export const ContactId = styled.span`
   font-size: 0.875rem;
-  font-weight: 600;
+  font-weight: 500;
 `;
 
 export const ContactName = styled.h2`
