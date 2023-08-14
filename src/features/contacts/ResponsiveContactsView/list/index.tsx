@@ -2,14 +2,15 @@ import { Contact } from "../../types";
 import { ContactId, ContactInfo, ContactName, StyledLi, StyledUl } from "./styles";
 
 interface ListProps {
-  data: Contact[]
+  data: Contact[];
+  onClick: (contact: Contact) => void
 }
 
-export function List({ data }: ListProps) {
+export function List({ data, onClick }: ListProps) {
   return (
     <StyledUl>
       {data.map((contact) =>
-        <StyledLi key={contact.id}>
+        <StyledLi key={contact.id} onClick={() => onClick(contact)}>
           <ContactId>{contact.id}</ContactId>
 
           <div>
