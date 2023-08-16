@@ -38,6 +38,7 @@ export const StyledModalContent = styled(Dialog.Content)`
   max-width: 450px;
   max-height: 85vh;
   padding: 24px;
+  overflow: auto;
 `;
 
 export const ModalTitle = styled.h2`
