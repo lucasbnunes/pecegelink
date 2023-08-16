@@ -4,18 +4,30 @@ import { Input } from "../../../../components/Input"
 import { InputGroup, StyledForm } from "./styles"
 import { Button } from "../../../../components/Button"
 import { Modal } from "../../../../components/Modal"
+import { useUpdateContactMutation } from "../../useUpdateContactMutation"
 
 interface EditFormProps {
-  defaultValues: Contact
+  defaultValues: Contact;
+  onSuccess: () => void;
+  onCancel: () => void;
 }
 
-export function EditForm({ defaultValues }: EditFormProps) {
+export function EditForm({ defaultValues, onSuccess, onCancel }: EditFormProps) {
   const {
     register,
     handleSubmit,
   } = useForm<Contact>({ defaultValues })
 
-  const onSubmit: SubmitHandler<Contact> = (data) => console.log(data)
+  const { mutateAsync, isLoading } = useUpdateContactMutation()
+
+  const onSubmit: SubmitHandler<Contact> = async (data) => {
+    try {
+      await mutateAsync(data)
+      onSuccess()
+    } catch (e) {
+      console.error(e)
+    }
+  }
 
   return (
     <>
@@ -46,8 +58,8 @@ export function EditForm({ defaultValues }: EditFormProps) {
         </StyledForm>
       </Modal.Body>
       <Modal.Footer>
-        <Button color="gray" variant="outline">Cancelar</Button>
-        <Button type="submit" form="edit-contact">Salvar</Button>
+        <Button color="gray" variant="outline" disabled={isLoading} onClick={onCancel}>Cancelar</Button>
+        <Button type="submit" form="edit-contact" disabled={isLoading}>Salvar</Button>
       </Modal.Footer>
     </>
   )

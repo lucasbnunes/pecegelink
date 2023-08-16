@@ -22,10 +22,18 @@ export function ContactDetailsModal({ open, setOpen, contact }: ContactDetailsMo
     setIsEditing(false)
   }
 
+  function handleEditSuccess() {
+    setOpen(false)
+  }
+
+  function handleCancelEdit() {
+    setIsEditing(false)
+  }
+
   return (
     <Modal open={open} setOpen={handleOpen}>
       {isEditing ?
-        <EditForm defaultValues={contact} />
+        <EditForm defaultValues={contact} onSuccess={handleEditSuccess} onCancel={handleCancelEdit} />
         :
         <Details contact={contact} onClickEdit={() => setIsEditing(true)} onClickDelete={() => { }} />
       }
