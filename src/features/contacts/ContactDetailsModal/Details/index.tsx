@@ -1,15 +1,27 @@
 import { Button } from "../../../../components/Button"
 import { Modal } from "../../../../components/Modal"
 import { Contact } from "../../types"
+import { useDeleteContactMutation } from "../../useDeleteContactMutation";
 import { DetailsContainer, MainInfo, InfoGroup, Separator } from "./styles"
 
 interface DetailsProps {
   contact: Contact;
   onClickEdit: () => void;
-  onClickDelete: () => void;
+  onDeleteSuccess: () => void;
 }
 
-export function Details({ contact, onClickEdit }: DetailsProps) {
+export function Details({ contact, onClickEdit, onDeleteSuccess }: DetailsProps) {
+  const { mutateAsync, isLoading } = useDeleteContactMutation()
+
+  async function handleDelete() {
+    try {
+      await mutateAsync(contact)
+      onDeleteSuccess()
+    } catch (e) {
+      console.error()
+    }
+  }
+
   return (
     <>
       <Modal.Title>Detalhes</Modal.Title>
@@ -54,8 +66,8 @@ export function Details({ contact, onClickEdit }: DetailsProps) {
 
       </Modal.Body>
       <Modal.Footer>
-        <Button color="primary" variant="ghost">Excluir</Button>
-        <Button color="gray" variant="outline" onClick={onClickEdit}>Editar</Button>
+        <Button color="primary" variant="ghost" onClick={handleDelete} disabled={isLoading}>Excluir</Button>
+        <Button color="gray" variant="outline" onClick={onClickEdit} disabled={isLoading}>Editar</Button>
       </Modal.Footer>
     </>
   )
