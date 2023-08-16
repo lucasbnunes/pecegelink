@@ -18,6 +18,16 @@ export const StyledButton = styled(BaseButton)<{
     css`
       background-color: ${theme.colors[color][700]};
       color: white;
+      transition: 150ms background-color ease-in;
+
+      &:hover:not(:disabled) {
+        background-color: ${theme.colors[color][800]};
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: ${theme.colors[color][400]};
+      }
     `}
 
   ${({ theme, color, variant }) =>
@@ -26,6 +36,18 @@ export const StyledButton = styled(BaseButton)<{
       background-color: transparent;
       color: ${theme.colors[color][700]};
       border: 1px solid ${theme.colors[color][700]};
+      transition:
+        150ms background-color ease-in,
+        150ms border-color ease-in;
+
+      &:hover:not(:disabled) {
+        background-color: ${theme.colors[color][50]};
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        border-color: ${theme.colors[color][400]};
+      }
     `}
 
     ${({ theme, color, variant }) =>
@@ -33,5 +55,18 @@ export const StyledButton = styled(BaseButton)<{
     css`
       background-color: ${theme.colors[color][50]};
       color: ${theme.colors[color][700]};
+      transition:
+        150ms background-color ease-in,
+        150ms color ease-in;
+
+      &:hover:not(:disabled) {
+        background-color: ${theme.colors[color][100]};
+        color: ${theme.colors[color][800]};
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+        color: ${theme.colors[color][600]};
+      }
     `}
 `;
