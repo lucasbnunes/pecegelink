@@ -5,7 +5,7 @@ export const StyledOverlay = styled(Dialog.Overlay)`
   position: fixed;
   inset: 0;
   background-color: ${({ theme }) => theme.colors.gray[950]};
-  opacity: 0.4;
+  opacity: 0.6;
 `;
 
 export const StyledModalClose = styled.button`
@@ -24,7 +24,7 @@ export const StyledModalClose = styled.button`
 
 export const StyledModalContent = styled(Dialog.Content)`
   background-color: white;
-  border-radius: 6px;
+  border-radius: 8px;
   box-shadow:
     0.3px 0.5px 0.7px ${(props) => props.theme.colors.gray[950]}0f,
     0.8px 1.6px 2px -0.8px ${(props) => props.theme.colors.gray[950]}0f,
@@ -34,11 +34,16 @@ export const StyledModalContent = styled(Dialog.Content)`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 90vw;
-  max-width: 450px;
-  max-height: 85vh;
+  min-width: 450px;
+  max-height: 70vh;
   padding: 24px;
   overflow: auto;
+
+  @media (max-width: 600px) {
+    min-width: unset;
+    width: 100%;
+    max-width: 80vw;
+  }
 `;
 
 export const ModalTitle = styled.h2`
