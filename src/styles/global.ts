@@ -5,4 +5,8 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.colors.gray['700']};
     font-family: 'Inter', sans-serif;
   }
+
+  body {
+    margin: 0;
+  }
 `;
