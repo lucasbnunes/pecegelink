@@ -9,7 +9,7 @@ interface ListProps {
 export function List({ data, onClick }: ListProps) {
   return (
     <StyledUl>
-      {data.map((contact) =>
+      {data?.map((contact) =>
         <StyledLi key={contact.id} onClick={() => onClick(contact)}>
           <ContactId>{contact.id}</ContactId>
 
