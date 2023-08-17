@@ -1,27 +1,39 @@
-# React + TypeScript + Vite
+# PecegeLink
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Uma lista de contatos desenvolvida com React e Typescript buscando dados de uma API
 
-Currently, two official plugins are available:
+## ⚙️ Principais funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Visualizar detalhes de um contato;
+- Editar os detalhes de um contato;
+- Cadastrar um novo contato;
+- Excluir um contato;
+- Filtrar contatos por nome;
+- Ordenar a lista por ordem alfabética;
 
-## Expanding the ESLint configuration
+## 💻 Pré-requisitos
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Antes de começar, verifique se você atende aos seguintes requisitos:
 
-- Configure the top-level `parserOptions` property like this:
+- Você tem uma máquina `Windows / Linux / Mac`;
+- Você tem a versão mais recente do `Node.js` instalada.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+## 🛠️ Instalando as dependências
+
+No seu terminal dentro do diretório do projeto execute o comando abaixo para instalar as dependências
+
+```
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## 👨‍💻 Usando a aplicação
+
+Com as dependências instaladas, execute o seguinte comando:
+
+```
+npm start
+```
+
+Abra uma guia do navegador e acesse: <http://localhost:5173>
+
+Pronto, agora você já pode utilizar o app!
