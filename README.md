@@ -31,7 +31,7 @@ npm install
 Com as dependências instaladas, execute o seguinte comando:
 
 ```
-npm start
+npm run dev
 ```
 
 Abra uma guia do navegador e acesse: <http://localhost:5173>
