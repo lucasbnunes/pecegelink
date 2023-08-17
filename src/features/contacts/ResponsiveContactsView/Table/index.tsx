@@ -17,7 +17,7 @@ export function Table({ data, onClick }: TableProps) {
       </tr>
     </StyledTHead>
     <StyledTBody>
-      {data.map((contact) => <tr key={contact.id} onClick={() => onClick(contact)}>
+      {data?.map((contact) => <tr key={contact.id} onClick={() => onClick(contact)}>
         <td>{contact.id}</td>
         <td>{contact.name}</td>
         <td>
