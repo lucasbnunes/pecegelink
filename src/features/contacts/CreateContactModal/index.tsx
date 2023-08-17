@@ -15,6 +15,7 @@ export function CreateContactModal({ open, setOpen }: CreateContactModalProps) {
   async function handleSubmit(data: Partial<Contact>) {
     try {
       await mutateAsync(data as Contact)
+      setOpen(false)
     } catch (e) {
       console.error(e)
     }
@@ -27,7 +28,7 @@ export function CreateContactModal({ open, setOpen }: CreateContactModalProps) {
         <ContactForm onSubmit={handleSubmit} id="create-form" />
       </Modal.Body>
       <Modal.Footer>
-        <Button color="gray" variant="outline">Cancelar</Button>
+        <Button color="gray" variant="outline" onClick={() => setOpen(false)}>Cancelar</Button>
         <Button form="create-form">Salvar</Button>
       </Modal.Footer>
     </Modal>
