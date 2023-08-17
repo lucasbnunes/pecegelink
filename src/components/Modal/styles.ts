@@ -1,11 +1,31 @@
-import { styled } from 'styled-components';
+import { keyframes, styled } from 'styled-components';
 import * as Dialog from '@radix-ui/react-dialog';
+
+const overlayShow = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.6;
+  }
+`;
+const contentShow = keyframes`
+  from {
+    opacity: 0;
+    transform: translate(-50%, -48%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+`;
 
 export const StyledOverlay = styled(Dialog.Overlay)`
   position: fixed;
   inset: 0;
   background-color: ${({ theme }) => theme.colors.gray[950]};
   opacity: 0.6;
+  animation: ${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
 `;
 
 export const StyledModalClose = styled.button`
@@ -38,6 +58,8 @@ export const StyledModalContent = styled(Dialog.Content)`
   max-height: 70vh;
   padding: 24px;
   overflow: auto;
+
+  animation: ${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1);
 
   @media (max-width: 600px) {
     min-width: unset;
