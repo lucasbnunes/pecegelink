@@ -8,6 +8,7 @@ import { Contact } from "../types"
 import { Input } from "../../../components/Input"
 import { IconSearch } from "@tabler/icons-react"
 import { SearchWrapper, SortButton } from "./style"
+import { Skeleton } from "../../../components/Skeleton"
 
 const desktopSize = 980
 
@@ -81,6 +82,21 @@ export function ResponsiveContactsView() {
       <SortButton active={sort} onClick={() => handleToggleSort(!sort)}>Ordenar A-Z</SortButton>
       <Input label="Pesquisar por nome" name="search" value={search} onChange={(e) => setSearch(e.currentTarget.value)} icon={<IconSearch />} />
     </SearchWrapper>
+
+    {isLoading &&
+      <div style={{ maxWidth: 1200, margin: '0 auto', display: "flex", flexDirection: 'column', gap: 8 }}>
+        <Skeleton height="50px" />
+        <Skeleton height="50px" />
+        <Skeleton height="50px" />
+        <Skeleton height="50px" />
+        <Skeleton height="50px" />
+        <Skeleton height="50px" />
+        <Skeleton height="50px" />
+        <Skeleton height="50px" />
+        <Skeleton height="50px" />
+        <Skeleton height="50px" />
+      </div>
+    }
 
     {!isLoading &&
       width > desktopSize ?
